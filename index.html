@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sahil Kumar | Data Analyst Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#070b14;
+    color:white;
+    line-height:1.6;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 8%;
+    background:rgba(7,11,20,.85);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    border-bottom:1px solid #1e293b;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#38bdf8;
+}
+
+nav a{
+    color:#cbd5e1;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+section{
+    padding:100px 8%;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+    radial-gradient(circle at top,#12345a 0%,#070b14 45%);
+}
+
+.hero-content{
+    max-width:850px;
+    animation:fadeUp 1s ease;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border:1px solid #38bdf8;
+    border-radius:30px;
+    color:#38bdf8;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:clamp(45px,10vw,90px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#38bdf8;
+}
+
+.hero h2{
+    font-size:clamp(20px,4vw,32px);
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#94a3b8;
+    max-width:650px;
+    margin:auto;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 22px;
+    margin:7px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    border:1px solid #38bdf8;
+    color:white;
+    transition:.3s;
+}
+
+.btn.primary{
+    background:#38bdf8;
+    color:#06111c;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title small{
+    color:#38bdf8;
+}
+
+.title h2{
+    font-size:42px;
+    margin-top:5px;
+}
+
+.about{
+    background:#0b1120;
+}
+
+.about-box{
+    max-width:850px;
+    margin:auto;
+    padding:30px;
+    border:1px solid #1e293b;
+    border-radius:18px;
+    background:#0f172a;
+}
+
+.about-box p{
+    color:#94a3b8;
+    margin-bottom:15px;
+}
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+}
+
+.skill{
+    padding:14px 22px;
+    background:#111c31;
+    border:1px solid #263650;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-5px);
+    border-color:#38bdf8;
+}
+
+.projects{
+    background:#070b14;
+}
+
+.project-list{
+    max-width:900px;
+    margin:auto;
+}
+
+.project{
+    display:flex;
+    gap:25px;
+    align-items:flex-start;
+    padding:30px;
+    margin-bottom:25px;
+    background:#0f172a;
+    border:1px solid #1e293b;
+    border-radius:18px;
+    transition:.4s;
+}
+
+.project:hover{
+    transform:translateX(8px);
+    border-color:#38bdf8;
+}
+
+.number{
+    font-size:42px;
+    font-weight:bold;
+    color:#38bdf8;
+    min-width:70px;
+}
+
+.project h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.project p{
+    color:#94a3b8;
+    margin-bottom:12px;
+}
+
+.tech{
+    color:#38bdf8;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.project a{
+    color:white;
+    text-decoration:none;
+    border-bottom:1px solid #38bdf8;
+}
+
+.certificates{
+    background:#0b1120;
+}
+
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.cert{
+    padding:25px;
+    background:#0f172a;
+    border:1px solid #1e293b;
+    border-radius:15px;
+    text-align:center;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#94a3b8;
+    margin-bottom:20px;
+}
+
+footer{
+    padding:25px;
+    text-align:center;
+    border-top:1px solid #1e293b;
+    color:#64748b;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:600px){
+    nav{
+        padding:15px 5%;
+    }
+
+    nav .links{
+        display:none;
+    }
+
+    section{
+        padding:85px 5%;
+    }
+
+    .project{
+        padding:22px;
+    }
+
+    .number{
+        font-size:30px;
+        min-width:45px;
+    }
+
+    .project h3{
+        font-size:19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SAHIL<span>.</span></div>
+
+    <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="badge">AVAILABLE FOR OPPORTUNITIES</div>
+
+<h1>Sahil <span>Kumar</span></h1>
+
+<h2>Data Analyst & BCA Student</h2>
+
+<p>
+I am building my career in Data Analytics with
+Python, SQL, Excel and Power BI.
+I love turning raw data into meaningful insights.
+</p>
+
+<div class="buttons">
+
+<a class="btn primary"
+href="https://github.com/kumarsahil1564-boop"
+target="_blank">
+GitHub
+</a>
+
+<a class="btn"
+href="https://www.linkedin.com/in/sahilkumar2005"
+target="_blank">
+LinkedIn
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="title">
+<small>01 / ABOUT</small>
+<h2>About Me</h2>
+</div>
+
+<div class="about-box">
+
+<p>
+Hello! I'm Sahil Kumar, a BCA student interested in
+Data Analytics and technology.
+</p>
+
+<p>
+Currently I am developing my skills in SQL, Python,
+Microsoft Excel and Power BI while building practical
+projects for my portfolio.
+</p>
+
+<p>
+My goal is to start my career as a Data Analyst and
+continuously improve my technical and analytical skills.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="title">
+<small>02 / SKILLS</small>
+<h2>My Skills</h2>
+</div>
+
+<div class="skills">
+
+<div class="skill">🐍 Python</div>
+<div class="skill">🗄️ SQL</div>
+<div class="skill">🛢️ MySQL</div>
+<div class="skill">📊 Microsoft Excel</div>
+<div class="skill">📈 Power BI</div>
+<div class="skill">🐼 Pandas</div>
+<div class="skill">📉 Data Analysis</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+<div class="title">
+<small>03 / PORTFOLIO</small>
+<h2>My Projects</h2>
+</div>
+
+<div class="project-list">
+
+
+<!-- PROJECT 01 -->
+
+<div class="project">
+
+<div class="number">01</div>
+
+<div>
+
+<h3>Student Performance Analysis</h3>
+
+<div class="tech">
+SQL • MySQL • Data Analysis
+</div>
+
+<p>
+Analyzed student performance data using SQL
+queries to extract useful insights and understand
+academic performance.
+</p>
+
+<a href="https://github.com/kumarsahil1564-boop"
+target="_blank">
+View Project →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 02 -->
+
+<div class="project">
+
+<div class="number">02</div>
+
+<div>
+
+<h3>Sales Data Analysis</h3>
+
+<div class="tech">
+Excel • Data Analysis
+</div>
+
+<p>
+An upcoming data analytics project focused on
+understanding sales performance, revenue and
+business insights.
+</p>
+
+<a href="https://github.com/kumarsahil1564-boop"
+target="_blank">
+View Project →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 03 -->
+
+<div class="project">
+
+<div class="number">03</div>
+
+<div>
+
+<h3>Superstore Sales Dashboard</h3>
+
+<div class="tech">
+Power BI • Excel • Data Visualization
+</div>
+
+<p>
+An interactive dashboard project designed to
+visualize sales, profit and business performance.
+</p>
+
+<a href="https://github.com/kumarsahil1564-boop"
+target="_blank">
+View Project →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 04 -->
+
+<div class="project">
+
+<div class="number">04</div>
+
+<div>
+
+<h3>Customer Data Analysis</h3>
+
+<div class="tech">
+Python • Pandas • Data Analysis
+</div>
+
+<p>
+A Python-based project for cleaning, analyzing and
+extracting insights from customer data.
+</p>
+
+<a href="https://github.com/kumarsahil1564-boop"
+target="_blank">
+View Project →
+</a>
+
+</div>
+
+</div>
+
+
+<!-- PROJECT 05 -->
+
+<div class="project">
+
+<div class="number">05</div>
+
+<div>
+
+<h3>Business Analytics Project</h3>
+
+<div class="tech">
+Python • SQL • Power BI
+</div>
+
+<p>
+A complete analytics project combining SQL,
+Python and Power BI to generate meaningful
+business insights.
+</p>
+
+<a href="https://github.com/kumarsahil1564-boop"
+target="_blank">
+View Project →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CERTIFICATES -->
+
+<section class="certificates">
+
+<div class="title">
+<small>04 / CERTIFICATIONS</small>
+<h2>Certificates</h2>
+</div>
+
+<div class="cert-grid">
+
+<div class="cert">
+<h3>Python</h3>
+<p>Certificate</p>
+</div>
+
+<div class="cert">
+<h3>MS Excel</h3>
+<p>Certificate</p>
+</div>
+
+<div class="cert">
+<h3>Power BI</h3>
+<p>Certificate</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="title">
+<small>05 / CONTACT</small>
+<h2>Let's Connect</h2>
+</div>
+
+<p>
+Interested in Data Analytics, projects or opportunities?
+Let's connect.
+</p>
+
+<div class="buttons">
+
+<a class="btn primary"
+href="mailto:your-email@example.com">
+Email Me
+</a>
+
+<a class="btn"
+href="https://
